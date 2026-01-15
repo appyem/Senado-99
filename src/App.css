@@ -15,8 +15,6 @@ body {
   background: linear-gradient(145deg, #d46b8a 0%, #e27b9a 35%, #d96c8d 100%);
   color: white;
   position: relative;
-  /* Fallback para dispositivos sin soporte de safe-area */
-  padding-bottom: 30px;
 }
 
 /* Textura sutil */
@@ -52,69 +50,67 @@ body::before {
 .App {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
-  padding: 20px 12px;
-  gap: 12px;
+  padding: 0 10px;
+  gap: 15px;
   position: relative;
   z-index: 1;
-  /* Safe areas reales + margen extra */
-  padding-top: max(env(safe-area-inset-top), 20px);
-  padding-bottom: max(env(safe-area-inset-bottom), 30px);
-  padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
+  /* Margen inferior fijo para gesture bar */
+  padding-bottom: 40px;
+  padding-top: 20px;
 }
 
 .candidate-section {
-  flex: 0 0 auto;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .candidate-image {
-  width: 94%;
-  max-width: 260px;
+  width: 95%;
+  max-width: 240px;
   height: auto;
   object-fit: contain;
-  border-radius: 16px;
-  border: 3px solid rgba(255, 255, 255, 0.95);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  border-radius: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   cursor: pointer;
 }
 
 .countdown-section {
-  flex: 0 0 auto;
   text-align: center;
   width: 100%;
-  max-width: 300px;
-  margin: 0 auto;
+  max-width: 280px;
 }
 
 .slogan-text {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .countdown-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
+  gap: 6px;
 }
 
 .countdown-item {
-  background: rgba(255, 255, 255, 0.12);
-  border-radius: 12px;
-  padding: 12px 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 10px 2px;
   text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .countdown-number {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 800;
   font-family: monospace;
-  margin-bottom: 3px;
+  margin-bottom: 2px;
   animation: pulseVisible 1.5s ease-in-out infinite;
 }
 
@@ -124,94 +120,92 @@ body::before {
 }
 
 .countdown-label {
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   text-transform: uppercase;
-  letter-spacing: 0.8px;
-  opacity: 0.85;
+  letter-spacing: 0.6px;
+  opacity: 0.8;
 }
 
 .bottom-section {
-  flex: 0 0 auto;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  padding: 16px 12px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 14px;
+  padding: 14px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   width: 100%;
-  max-width: 300px;
-  margin: 0 auto;
+  max-width: 280px;
+  /* Posición fija en la parte inferior visible */
+  margin-top: auto;
 }
 
 .main-slogan {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 800;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   text-align: center;
   animation: glowUColors 4s ease-in-out infinite alternate;
 }
 
 @keyframes glowUColors {
-  0% { text-shadow: 0 0 5px rgba(255,165,0,0.4); }
-  33% { text-shadow: 0 0 8px rgba(0,128,0,0.5); }
-  66% { text-shadow: 0 0 8px rgba(0,0,255,0.5); }
-  100% { text-shadow: 0 0 5px rgba(255,165,0,0.4); }
+  0% { text-shadow: 0 0 4px rgba(255,165,0,0.4); }
+  33% { text-shadow: 0 0 6px rgba(0,128,0,0.5); }
+  66% { text-shadow: 0 0 6px rgba(0,0,255,0.5); }
+  100% { text-shadow: 0 0 4px rgba(255,165,0,0.4); }
 }
 
 .logo-number-row {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  margin: 14px 0;
+  gap: 18px;
+  margin: 12px 0;
 }
 
 .party-logo img {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
 }
 
 .candidate-number {
   background: linear-gradient(135deg, #d96c8d 0%, #e27b9a 100%);
   color: white;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 800;
-  padding: 10px 20px;
-  border-radius: 12px;
+  padding: 8px 16px;
+  border-radius: 10px;
   border: 2px solid white;
 }
 
 .social-buttons {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-top: 14px;
+  gap: 8px;
+  margin-top: 12px;
 }
 
 .social-button {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .social-button img {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   object-fit: cover;
 }
 
-/* Fallback para navegadores antiguos */
-@supports not (padding-bottom: env(safe-area-inset-bottom)) {
-  .App {
-    padding-bottom: 40px !important;
-  }
-  
-  .bottom-section {
-    margin-bottom: 20px !important;
-  }
+/* Para pantallas muy pequeñas */
+@media (max-height: 568px) {
+  .candidate-image { max-width: 200px; }
+  .countdown-number { font-size: 1.1rem; }
+  .main-slogan { font-size: 1.1rem; }
+  .candidate-number { font-size: 1.2rem; padding: 6px 12px; }
+  .social-button { width: 32px; height: 32px; }
 }
