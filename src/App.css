@@ -15,6 +15,8 @@ body {
   background: linear-gradient(145deg, #d46b8a 0%, #e27b9a 35%, #d96c8d 100%);
   color: white;
   position: relative;
+  /* Fallback para dispositivos sin soporte de safe-area */
+  padding-bottom: 30px;
 }
 
 /* Textura sutil */
@@ -50,13 +52,16 @@ body::before {
 .App {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  height: -webkit-fill-available;
-  padding: env(safe-area-inset-top) 12px 0;
-  padding-bottom: env(safe-area-inset-bottom);
+  min-height: 100vh;
+  padding: 20px 12px;
   gap: 12px;
   position: relative;
   z-index: 1;
+  /* Safe areas reales + margen extra */
+  padding-top: max(env(safe-area-inset-top), 20px);
+  padding-bottom: max(env(safe-area-inset-bottom), 30px);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
 
 .candidate-section {
@@ -64,7 +69,6 @@ body::before {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 8px 0;
 }
 
 .candidate-image {
@@ -136,7 +140,6 @@ body::before {
   width: 100%;
   max-width: 300px;
   margin: 0 auto;
-  margin-bottom: env(safe-area-inset-bottom);
 }
 
 .main-slogan {
@@ -202,10 +205,13 @@ body::before {
   object-fit: cover;
 }
 
-/* Para pantallas muy pequeñas */
-@media (max-height: 600px) {
-  .candidate-image { max-width: 220px; }
-  .countdown-number { font-size: 1.3rem; }
-  .main-slogan { font-size: 1.2rem; }
-  .candidate-number { font-size: 1.4rem; padding: 8px 16px; }
+/* Fallback para navegadores antiguos */
+@supports not (padding-bottom: env(safe-area-inset-bottom)) {
+  .App {
+    padding-bottom: 40px !important;
+  }
+  
+  .bottom-section {
+    margin-bottom: 20px !important;
+  }
 }
