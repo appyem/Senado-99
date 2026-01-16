@@ -1,4 +1,3 @@
-```css
 * {
   margin: 0;
   padding: 0;
@@ -53,7 +52,7 @@ body::before {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding: 20px 12px 80px; /* Espacio para la parte inferior */
+  padding: 20px 12px 80px;
   gap: 20px;
   align-items: center;
   position: relative;
@@ -105,15 +104,35 @@ body::before {
 
 .countdown-number {
   font-size: 1.4rem;
-  font-weight: 800;
-  font-family: monospace;
+  font-weight: 900;
+  font-family: 'Courier New', monospace;
   margin-bottom: 3px;
-  animation: pulseVisible 1.5s ease-in-out infinite;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(45deg, #ffffff, #ffd700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: clockPulse 2s ease-in-out infinite;
 }
 
-@keyframes pulseVisible {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+@keyframes clockPulse {
+  0%, 100% { 
+    transform: scale(1) rotate(0deg);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+  25% { 
+    transform: scale(1.1) rotate(2deg);
+    text-shadow: 0 0 12px rgba(255, 215, 0, 0.8);
+  }
+  50% { 
+    transform: scale(1.15) rotate(-2deg);
+    text-shadow: 0 0 16px rgba(255, 215, 0, 0.9);
+  }
+  75% { 
+    transform: scale(1.1) rotate(1deg);
+    text-shadow: 0 0 12px rgba(255, 215, 0, 0.8);
+  }
 }
 
 .countdown-label {
@@ -131,7 +150,6 @@ body::before {
   border: 1px solid rgba(255, 255, 255, 0.25);
   width: 100%;
   max-width: 290px;
-  /* Aseguramos visibilidad */
   margin-top: auto;
 }
 
@@ -140,14 +158,34 @@ body::before {
   font-weight: 800;
   margin-bottom: 16px;
   text-align: center;
-  animation: glowUColors 4s ease-in-out infinite alternate;
+  animation: glowUColors 3s ease-in-out infinite alternate;
 }
 
 @keyframes glowUColors {
-  0% { text-shadow: 0 0 5px rgba(255,165,0,0.4); }
-  33% { text-shadow: 0 0 8px rgba(0,128,0,0.5); }
-  66% { text-shadow: 0 0 8px rgba(0,0,255,0.5); }
-  100% { text-shadow: 0 0 5px rgba(255,165,0,0.4); }
+  0% {
+    text-shadow: 
+      0 0 8px rgba(255, 255, 255, 0.6),
+      0 0 16px rgba(255, 165, 0, 0.8),
+      0 0 24px rgba(255, 165, 0, 0.6);
+  }
+  33% {
+    text-shadow: 
+      0 0 8px rgba(255, 255, 255, 0.6),
+      0 0 16px rgba(0, 128, 0, 0.8),
+      0 0 24px rgba(0, 128, 0, 0.6);
+  }
+  66% {
+    text-shadow: 
+      0 0 8px rgba(255, 255, 255, 0.6),
+      0 0 16px rgba(0, 0, 255, 0.8),
+      0 0 24px rgba(0, 0, 255, 0.6);
+  }
+  100% {
+    text-shadow: 
+      0 0 8px rgba(255, 255, 255, 0.6),
+      0 0 16px rgba(255, 165, 0, 0.8),
+      0 0 24px rgba(255, 165, 0, 0.6);
+  }
 }
 
 .logo-number-row {
@@ -198,7 +236,6 @@ body::before {
   object-fit: cover;
 }
 
-/* Permitir scroll suave solo si es necesario */
 @media (max-height: 600px) {
   .App {
     overflow-y: auto;
