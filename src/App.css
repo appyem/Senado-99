@@ -53,13 +53,13 @@ body::before {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 0 10px;
-  gap: 15px;
+  padding: 0 12px;
+  gap: 20px; /* Aumentado el espacio entre secciones */
   position: relative;
   z-index: 1;
-  /* Margen inferior fijo para gesture bar */
-  padding-bottom: 40px;
-  padding-top: 20px;
+  /* Margen inferior generoso para gesture bar */
+  padding-bottom: 60px;
+  padding-top: 25px;
 }
 
 .candidate-section {
@@ -71,46 +71,46 @@ body::before {
 
 .candidate-image {
   width: 95%;
-  max-width: 240px;
+  max-width: 250px;
   height: auto;
   object-fit: contain;
-  border-radius: 14px;
-  border: 2px solid rgba(255, 255, 255, 0.95);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  border: 3px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
   cursor: pointer;
 }
 
 .countdown-section {
   text-align: center;
   width: 100%;
-  max-width: 280px;
+  max-width: 290px;
 }
 
 .slogan-text {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
 }
 
 .countdown-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 6px;
+  gap: 8px;
 }
 
 .countdown-item {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  padding: 10px 2px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 12px 4px;
   text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .countdown-number {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 800;
   font-family: monospace;
-  margin-bottom: 2px;
+  margin-bottom: 3px;
   animation: pulseVisible 1.5s ease-in-out infinite;
 }
 
@@ -120,92 +120,95 @@ body::before {
 }
 
 .countdown-label {
-  font-size: 0.55rem;
+  font-size: 0.6rem;
   text-transform: uppercase;
-  letter-spacing: 0.6px;
-  opacity: 0.8;
+  letter-spacing: 0.8px;
+  opacity: 0.85;
 }
 
 .bottom-section {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(8px);
-  border-radius: 14px;
-  padding: 14px 10px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 18px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
   width: 100%;
-  max-width: 280px;
-  /* Posición fija en la parte inferior visible */
-  margin-top: auto;
+  max-width: 290px;
+  /* Espacio extra en la parte inferior */
+  margin-bottom: 20px;
 }
 
 .main-slogan {
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   font-weight: 800;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   text-align: center;
   animation: glowUColors 4s ease-in-out infinite alternate;
 }
 
 @keyframes glowUColors {
-  0% { text-shadow: 0 0 4px rgba(255,165,0,0.4); }
-  33% { text-shadow: 0 0 6px rgba(0,128,0,0.5); }
-  66% { text-shadow: 0 0 6px rgba(0,0,255,0.5); }
-  100% { text-shadow: 0 0 4px rgba(255,165,0,0.4); }
+  0% { text-shadow: 0 0 5px rgba(255,165,0,0.4); }
+  33% { text-shadow: 0 0 8px rgba(0,128,0,0.5); }
+  66% { text-shadow: 0 0 8px rgba(0,0,255,0.5); }
+  100% { text-shadow: 0 0 5px rgba(255,165,0,0.4); }
 }
 
 .logo-number-row {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 18px;
-  margin: 12px 0;
+  gap: 22px;
+  margin: 16px 0;
 }
 
 .party-logo img {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   object-fit: contain;
 }
 
 .candidate-number {
   background: linear-gradient(135deg, #d96c8d 0%, #e27b9a 100%);
   color: white;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 800;
-  padding: 8px 16px;
-  border-radius: 10px;
+  padding: 10px 20px;
+  border-radius: 12px;
   border: 2px solid white;
 }
 
 .social-buttons {
   display: flex;
   justify-content: center;
-  gap: 8px;
-  margin-top: 12px;
+  gap: 12px;
+  margin-top: 16px;
 }
 
 .social-button {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+  border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .social-button img {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   object-fit: cover;
 }
 
 /* Para pantallas muy pequeñas */
 @media (max-height: 568px) {
-  .candidate-image { max-width: 200px; }
-  .countdown-number { font-size: 1.1rem; }
-  .main-slogan { font-size: 1.1rem; }
-  .candidate-number { font-size: 1.2rem; padding: 6px 12px; }
-  .social-button { width: 32px; height: 32px; }
+  .App {
+    padding-bottom: 70px; /* Más espacio en dispositivos pequeños */
+  }
+  
+  .candidate-image { max-width: 220px; }
+  .countdown-number { font-size: 1.2rem; }
+  .main-slogan { font-size: 1.2rem; }
+  .candidate-number { font-size: 1.3rem; padding: 8px 16px; }
 }
