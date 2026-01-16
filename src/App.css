@@ -1,3 +1,4 @@
+```css
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +8,8 @@
 html, body, #root {
   height: 100%;
   width: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 body {
@@ -51,13 +53,11 @@ body::before {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding: 20px 12px;
-  gap: 18px;
+  padding: 20px 12px 80px; /* Espacio para la parte inferior */
+  gap: 20px;
   align-items: center;
   position: relative;
   z-index: 1;
-  /* Espacio para la sección fija inferior */
-  padding-bottom: 140px;
 }
 
 .candidate-section {
@@ -123,7 +123,6 @@ body::before {
   opacity: 0.85;
 }
 
-/* Sección inferior FIJA */
 .bottom-section {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
@@ -132,12 +131,8 @@ body::before {
   border: 1px solid rgba(255, 255, 255, 0.25);
   width: 100%;
   max-width: 290px;
-  /* Posición fija en la parte inferior */
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
+  /* Aseguramos visibilidad */
+  margin-top: auto;
 }
 
 .main-slogan {
@@ -201,4 +196,12 @@ body::before {
   width: 26px;
   height: 26px;
   object-fit: cover;
+}
+
+/* Permitir scroll suave solo si es necesario */
+@media (max-height: 600px) {
+  .App {
+    overflow-y: auto;
+    padding-bottom: 100px;
+  }
 }
